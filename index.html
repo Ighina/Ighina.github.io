@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iacopo Ghinassi</title>
+  <meta name="description" content="Personal academic website of Iacopo Ghinassi, AI and NLP researcher." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-hero: clamp(3rem, 0.5rem + 7vw, 7rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem;
+      --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem;
+      --space-20: 5rem; --space-24: 6rem; --space-32: 8rem;
+      --color-bg: #f7f6f2;
+      --color-surface: #fbfaf7;
+      --color-surface-2: #f2f0eb;
+      --color-surface-offset: #ece8e1;
+      --color-border: #d7d2c8;
+      --color-divider: #dfdbd2;
+      --color-text: #23211c;
+      --color-text-muted: #6f6b63;
+      --color-text-faint: #aaa59b;
+      --color-text-inverse: #f7f6f2;
+      --color-primary: #0d6268;
+      --color-primary-hover: #09484c;
+      --shadow-sm: 0 1px 2px rgba(34,31,24,.06);
+      --shadow-md: 0 10px 30px rgba(34,31,24,.08);
+      --radius-sm: .375rem; --radius-md: .75rem; --radius-lg: 1rem; --radius-xl: 1.5rem; --radius-full: 9999px;
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --content: 1100px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme]) {
+        --color-bg: #171614; --color-surface: #1d1c1a; --color-surface-2: #23211f; --color-surface-offset: #2a2825;
+        --color-border: #3a3835; --color-divider: #302e2b; --color-text: #ece8df; --color-text-muted: #b3aea4;
+        --color-text-faint: #777268; --color-text-inverse: #161513; --color-primary: #6eb4be; --color-primary-hover: #93cdd5;
+        --shadow-sm: 0 1px 2px rgba(0,0,0,.18); --shadow-md: 0 10px 30px rgba(0,0,0,.28);
+      }
+    }
+    [data-theme="dark"] {
+      --color-bg: #171614; --color-surface: #1d1c1a; --color-surface-2: #23211f; --color-surface-offset: #2a2825;
+      --color-border: #3a3835; --color-divider: #302e2b; --color-text: #ece8df; --color-text-muted: #b3aea4;
+      --color-text-faint: #777268; --color-text-inverse: #161513; --color-primary: #6eb4be; --color-primary-hover: #93cdd5;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.18); --shadow-md: 0 10px 30px rgba(0,0,0,.28);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:none;text-size-adjust:none}
+    body{min-height:100dvh;font-family:var(--font-body);font-size:var(--text-base);line-height:1.65;background:var(--color-bg);color:var(--color-text)}
+    img,svg{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;border:0;background:none;color:inherit;cursor:pointer}
+    :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm)}
+    .skip-link{position:absolute;left:-9999px;top:auto}.skip-link:focus{left:var(--space-4);top:var(--space-4);background:var(--color-surface);padding:var(--space-2) var(--space-4);z-index:1000;border:1px solid var(--color-border)}
+    .container{width:min(calc(100% - 2rem), var(--content));margin-inline:auto}
+    .site-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--color-bg) 88%, transparent);backdrop-filter:blur(12px);border-bottom:1px solid color-mix(in srgb, var(--color-border) 70%, transparent)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);padding:var(--space-4) 0}
+    .brand{display:flex;align-items:center;gap:var(--space-3);font-size:var(--text-sm);font-weight:600;letter-spacing:.02em}
+    .brand-mark{width:34px;height:34px;color:var(--color-primary)}
+    nav ul{display:flex;gap:var(--space-4);list-style:none;flex-wrap:wrap;justify-content:flex-end}
+    nav a{font-size:var(--text-sm);color:var(--color-text-muted)}
+    nav a:hover, nav a:focus-visible{color:var(--color-text)}
+    .theme-toggle{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--color-border);border-radius:var(--radius-full);background:var(--color-surface)}
+    .hero{padding:clamp(var(--space-12), 14vw, var(--space-32)) 0 var(--space-16)}
+    .hero-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:var(--space-12);align-items:end}
+    .eyebrow{font-size:var(--text-sm);text-transform:uppercase;letter-spacing:.14em;color:var(--color-primary);margin-bottom:var(--space-4)}
+    h1{font-family:var(--font-display);font-size:var(--text-hero);line-height:.95;font-weight:400;letter-spacing:-.03em;max-width:10ch}
+    .lead{font-size:var(--text-lg);max-width:42ch;color:var(--color-text-muted);margin-top:var(--space-6)}
+    .hero-card{padding:var(--space-6);background:linear-gradient(180deg,var(--color-surface),var(--color-surface-2));border:1px solid color-mix(in srgb, var(--color-border) 75%, transparent);border-radius:var(--radius-xl);box-shadow:var(--shadow-md)}
+    .meta-list{list-style:none;display:grid;gap:var(--space-4)}
+    .meta-label{display:block;font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.12em;color:var(--color-text-faint);margin-bottom:var(--space-1)}
+    .meta-value{font-size:var(--text-sm);color:var(--color-text)}
+    main section{padding:var(--space-16) 0;border-top:1px solid var(--color-divider)}
+    .section-head{display:grid;grid-template-columns:.7fr 1.3fr;gap:var(--space-10);margin-bottom:var(--space-8)}
+    .section-kicker{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.14em;color:var(--color-primary);margin-bottom:var(--space-3)}
+    h2{font-family:var(--font-display);font-weight:400;font-size:var(--text-2xl);line-height:1}
+    .section-intro{max-width:60ch;color:var(--color-text-muted)}
+    .two-col{display:grid;grid-template-columns:.8fr 1.2fr;gap:var(--space-10)}
+    .card{background:var(--color-surface);border:1px solid color-mix(in srgb, var(--color-border) 75%, transparent);border-radius:var(--radius-lg);padding:var(--space-6);box-shadow:var(--shadow-sm)}
+    .stack{display:grid;gap:var(--space-4)}
+    .pill{display:inline-flex;align-items:center;padding:.4rem .8rem;border-radius:var(--radius-full);background:color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));color:var(--color-primary);font-size:var(--text-xs);letter-spacing:.08em;text-transform:uppercase}
+    .timeline{display:grid;gap:var(--space-5)}
+    .timeline-item{padding-bottom:var(--space-5);border-bottom:1px solid var(--color-divider)}
+    .timeline-item:last-child{padding-bottom:0;border-bottom:0}
+    .timeline-item h3,.pub h3{font-size:var(--text-base);line-height:1.35}
+    .sub{display:block;color:var(--color-text-muted);font-size:var(--text-sm);margin-top:var(--space-1)}
+    .pub-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
+    .pub{padding:var(--space-5);border-radius:var(--radius-lg);background:var(--color-surface);border:1px solid color-mix(in srgb, var(--color-border) 75%, transparent)}
+    .pub p{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-2)}
+    .list{list-style:none;display:grid;gap:var(--space-3)}
+    .list li{padding-left:1.1rem;position:relative;color:var(--color-text-muted)}
+    .list li::before{content:'';position:absolute;left:0;top:.75em;width:.38rem;height:.38rem;border-radius:50%;background:var(--color-primary)}
+    .contact{display:flex;gap:var(--space-4);flex-wrap:wrap;margin-top:var(--space-6)}
+    .button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.85rem 1.2rem;border-radius:var(--radius-full);font-size:var(--text-sm);font-weight:600;transition:all var(--transition)}
+    .button.primary{background:var(--color-primary);color:var(--color-text-inverse)}
+    .button.primary:hover{background:var(--color-primary-hover)}
+    .button.secondary{background:var(--color-surface);border:1px solid var(--color-border)}
+    .footer{padding:var(--space-10) 0 var(--space-16);color:var(--color-text-muted);font-size:var(--text-sm)}
+    .muted{color:var(--color-text-muted)}
+    .tight p + p{margin-top:var(--space-4)}
+    @media (max-width: 900px){
+      .hero-grid,.section-head,.two-col,.pub-grid{grid-template-columns:1fr}
+      nav{display:none}
+      h1{max-width:unset}
+    }
+    @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Iacopo Ghinassi home">
+        <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <circle cx="24" cy="24" r="19" stroke="currentColor" stroke-width="2.2"/>
+          <path d="M15 17h18M24 17v14c0 3.3-2.7 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M31 24c0 4.4-2.2 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <span>Iacopo Ghinassi</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#teaching">Teaching</a></li>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">AI · NLP · Digital Humanities</p>
+          <h1>I study language, audio, and long-context models.</h1>
+          <p class="lead">I am Iacopo Ghinassi, an academic researcher working across natural language processing, multimodal learning, topic segmentation, and computational approaches to language and culture. I also teach, mentor students, and contribute to interdisciplinary digital humanities education.</p>
+          <div class="contact">
+            <a class="button primary" href="#research">View research</a>
+            <a class="button secondary" href="#teaching">Teaching and mentoring</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Profile summary">
+          <ul class="meta-list">
+            <li><span class="meta-label">Focus</span><span class="meta-value">Large language models, NLP, multimodal representations, topic segmentation</span></li>
+            <li><span class="meta-label">Current profile</span><span class="meta-value">Academic researcher in AI and machine learning</span></li>
+            <li><span class="meta-label">Interests beyond research</span><span class="meta-value">Teaching, student mentoring, digital humanities, tennis</span></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">About</p>
+            <h2>Profile</h2>
+          </div>
+          <p class="section-intro">My work sits at the intersection of language technology and humanistic inquiry, with projects ranging from topic segmentation and audio representations to language models for moral values, historical language processing, and efficient summarization.</p>
+        </div>
+        <div class="two-col">
+          <article class="card tight">
+            <span class="pill">Research direction</span>
+            <div class="stack" style="margin-top: var(--space-4);">
+              <p>I work on models that help analyse long and structured sequences, compare sentence encoders, and bridge text with audio and multimodal content.</p>
+              <p>I am especially interested in methods that remain useful outside ideal benchmark settings and in interdisciplinary applications that connect AI with cultural and social data.</p>
+            </div>
+          </article>
+          <article class="card">
+            <span class="pill">Personal note</span>
+            <ul class="list" style="margin-top: var(--space-4);">
+              <li>I play tennis.</li>
+              <li>I enjoy explaining complex AI concepts to students from technical and non-technical backgrounds.</li>
+              <li>I value mentorship as part of research and teaching practice.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Research</p>
+            <h2>Selected publications</h2>
+          </div>
+          <p class="section-intro">The CV highlights work published in venues including COLING, LREC-COLING, EMNLP Findings, ACM ICMR, PeerJ Computer Science, and RANLP, with recurring themes around text segmentation, long-context LLM behaviour, and multimodal analysis.</p>
+        </div>
+        <div class="pub-grid">
+          <article class="pub">
+            <h3>Efficient Solutions For An Intriguing Failure of LLMs</h3>
+            <p>COLING 2025. Long context windows do not automatically guarantee flawless analysis of long sequences.</p>
+          </article>
+          <article class="pub">
+            <h3>Recent Trends in Linear Text Segmentation: A Survey</h3>
+            <p>Findings of EMNLP 2024. A survey of recent developments in linear text segmentation.</p>
+          </article>
+          <article class="pub">
+            <h3>When Cohesion Lies in the Embedding Space</h3>
+            <p>LREC-COLING 2024. Embedding-based reference-free metrics for topic segmentation.</p>
+          </article>
+          <article class="pub">
+            <h3>Multimodal Topic Segmentation of Podcast Shows</h3>
+            <p>ACM ICMR 2023. Topic segmentation with pre-trained neural encoders across modalities.</p>
+          </article>
+          <article class="pub">
+            <h3>Comparing Neural Sentence Encoders for Topic Segmentation Across Domains</h3>
+            <p>PeerJ Computer Science 2023. Sentence encoders for a task that differs from standard text similarity.</p>
+          </article>
+          <article class="pub">
+            <h3>Language Pivoting from Parallel Corpora for Word Sense Disambiguation of Historical Languages</h3>
+            <p>LREC-COLING 2024. A case study focused on Latin and historical language processing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="teaching">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Teaching</p>
+            <h2>Instruction and mentorship</h2>
+          </div>
+          <p class="section-intro">Alongside research, I have taught across core AI and data science subjects, delivered guest teaching in digital humanities, and supported students through mentoring and dissertation supervision.</p>
+        </div>
+        <div class="two-col">
+          <article class="card">
+            <span class="pill">Teaching assistant</span>
+            <div class="timeline" style="margin-top: var(--space-4);">
+              <div class="timeline-item">
+                <h3>Natural Language Processing</h3>
+                <span class="sub">Teaching assistant · 2022, 2023</span>
+              </div>
+              <div class="timeline-item">
+                <h3>Natural Language Processing and Neural Networks</h3>
+                <span class="sub">Teaching assistant · 2022, 2023, 2024</span>
+              </div>
+              <div class="timeline-item">
+                <h3>Machine Learning</h3>
+                <span class="sub">Teaching assistant · 2022, 2023</span>
+              </div>
+              <div class="timeline-item">
+                <h3>Applied Statistics</h3>
+                <span class="sub">Teaching assistant · 2024</span>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <span class="pill">Guest lecture and mentoring</span>
+            <div class="timeline" style="margin-top: var(--space-4);">
+              <div class="timeline-item">
+                <h3>Guest Lecture at King's College London</h3>
+                <span class="sub">Introduction to Digital Humanities postgraduate course</span>
+                <p class="muted" style="margin-top: var(--space-2);">Delivered a lecture introducing what large language models are for Digital Humanities MA students.</p>
+              </div>
+              <div class="timeline-item">
+                <h3>Queen Mary University of London</h3>
+                <span class="sub">Main mentor and cohort point of contact · Data Science and Artificial Intelligence (Conversion Programme) MSc, 2022 cohort</span>
+                <p class="muted" style="margin-top: var(--space-2);">Included mentoring support for MSc dissertation projects and pastoral or academic guidance for the cohort.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Awards</p>
+            <h2>Scholarship and recognition</h2>
+          </div>
+          <p class="section-intro">Academic support and recognition have accompanied my teaching and research trajectory, including scholarship-based enrichment opportunities.</p>
+        </div>
+        <div class="card">
+          <div class="timeline">
+            <div class="timeline-item">
+              <h3>Turing Enrichment Student Scholarship</h3>
+              <span class="sub">Recipient · 2022/2023</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Contact</p>
+            <h2>Get in touch</h2>
+          </div>
+          <p class="section-intro">This site is designed as a concise academic profile with a clean editorial structure inspired by minimalist research homepages.</p>
+        </div>
+        <div class="card tight">
+          <p>For formal contact details, publication links, and institutional affiliations, this website can be extended with email, Google Scholar, GitHub, LinkedIn, and downloadable CV links.</p>
+          <p class="muted">The page is structured so those links can be added directly to the header card and footer without redesigning the layout.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Iacopo Ghinassi</div>
+  </footer>
+
+  <script>
+    (function(){
+      const root = document.documentElement;
+      const btn = document.querySelector('[data-theme-toggle]');
+      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+      const icons = {
+        dark: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>',
+        light: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      };
+      function render(){
+        btn.innerHTML = theme === 'dark' ? icons.light : icons.dark;
+        btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        root.setAttribute('data-theme', theme);
+      }
+      btn.addEventListener('click', function(){ theme = theme === 'dark' ? 'light' : 'dark'; render(); });
+      render();
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
